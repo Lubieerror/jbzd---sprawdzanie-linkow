@@ -1,36 +1,41 @@
 // ==UserScript==
 // @name         jbzd - sprawdzanie linków
 // @namespace    http://tampermonkey.net/
-// @version      0.1
+// @version      0.3
 // @description  Sprawdzanie linków z YT
 // @downloadURL  https://github.com/krozum/jbzd---sprawdzanie-linkow/raw/master/script.user.js
 // @updateURL    https://github.com/krozum/jbzd---sprawdzanie-linkow/raw/master/script.user.js
 // @author       brains
 // @match        https://jbzdy.pl/*
 // @grant        none
-// @require https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js
 // ==/UserScript==
 
-function inspekcja(){
-    var komentarze = document.getElementsByName("comment");
-    komentarze.forEach(czyszczenie);
-}
+$(window).load(function(){
+    function inspekcja(){
+        console.log('--------------');
+        console.log('jbzd - sprawdzanie linków');
+        console.log('--------------');
+        $('*[name="comment"]:contains("watch?v")').each(function(index, element) {
+            var THAT = $(element);
+            var html = $(element).html();
+            var indexOf = html.indexOf("watch?v");
+            var idVideo = html.substring(indexOf+8, indexOf + 19);
 
-function czyszczenie(p,i){
-    var b = p.innerText.indexOf('/watch?v=');
-    if (b != -1){
-        var id = p.innerText.substring(b+9, b+21);
-        fetch("https://www.googleapis.com/youtube/v3/videos?part=snippet&id="+id+"&key=AIzaSyCB5JgQZOjv0F8MyWRX_e1kwNYzio2ipkg")
-            .then(response => response.json())
-            .then(response => {
-            var html = p.innerText;
-            if(response.items[0].snippet.channelId == "UCtbx4rjJW3CYRZjSDX4HARw"){
-                $(p).html(html + "<br><br><span style='color: red'>LINK ZWERYFIKOWANO NEGATYWNIE 👎</span>");
-            } else {
-                $(p).html(html + "<br><br><span style='color: green'>LINK ZWERYFIKOWANO POZYTYWNIE 👍</span>");
-            }
-        });
+            $.getJSON("https://www.googleapis.com/youtube/v3/videos?part=snippet&id="+idVideo+"&key=AIzaSyCB5JgQZOjv0F8MyWRX_e1kwNYzio2ipkg", {
+                format: "json"
+            }).done(function (data) {
+                if(data['items'].length != 0){
+                    if(data['items'][0]['snippet']['channelId'] == "UCtbx4rjJW3CYRZjSDX4HARw"){
+                        THAT.append("<br><br><span style='color: red'>LINK ZWERYFIKOWANO NEGATYWNIE 👎</span>");
+                    } else {
+                        THAT.append("<br><br><span style='color: green'>LINK ZWERYFIKOWANO POZYTYWNIE 👍</span>");
+                    }
+                } else {
+                    THAT.append("<br><br><span style='color: orange'>FILM NIEDOSTEPNY</span>");
+                }
+            });
+        })
+
     }
-}
-
-window.onload = inspekcja;
+    inspekcja();
+});
