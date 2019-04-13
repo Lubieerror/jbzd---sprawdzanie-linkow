@@ -10,6 +10,10 @@
 // @grant        none
 // ==/UserScript==
 
+// Original:
+// downloadURL  https://github.com/krozum/jbzd---sprawdzanie-linkow/raw/master/script.user.js
+// updateURL    https://github.com/krozum/jbzd---sprawdzanie-linkow/raw/master/script.user.js
+
 $(window).load(function(){
     function inspekcja(){
         console.log('--------------');
