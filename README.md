@@ -1,6 +1,6 @@
-_Fork mixujący sprawdzacze linków od korozum (większość kodu) i DzidaProtektor (wyświetlanie napisu: JEZUS CHRYSTUS JEST MOIM KRÓLEM)._
+_Fork mixujący sprawdzacze linków od korozum (większość kodu) i Mig (wyświetlanie napisu: JEZUS CHRYSTUS JEST MOIM KRÓLEM)._
 
-_Uznałem, że [skrypt korozuma](https://github.com/krozum/jbzd---sprawdzanie-linkow) jest bardziej skuteczny, a podmiana jakiej dokonuje [Protektor](https://pastebin.com/6VMfYAtm) bardziej przyjemna dla oka.
+_Uznałem, że [skrypt korozuma](https://github.com/krozum/jbzd---sprawdzanie-linkow) jest bardziej skuteczny, a podmiana jakiej dokonuje [Mig](https://pastebin.com/6VMfYAtm) bardziej przyjemna dla oka.
 Poza tym dodaję Open Sourcową alternatywę. Sposób działania na pozytywne linki pozostaje taki sam_
 
 Instrukcja instalacji
@@ -12,3 +12,4 @@ Instrukcja instalacji
 2. Po zainstalowaniu wejdż w link https://github.com/Lubieerror/jbzd---sprawdzanie-linkow/raw/master/script.user.js i kliknij przycisk Zainstaluj
 
 [![N|Solid](https://i.imgur.com/e5kNtfi.png)](https://github.com/Lubieerror/jbzd---sprawdzanie-linkow)
+[![N|Solid](https://i.imgur.com/ycjTfkp.png)](https://github.com/Lubieerror/jbzd---sprawdzanie-linkow)
