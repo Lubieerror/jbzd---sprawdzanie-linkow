@@ -1,11 +1,11 @@
 // ==UserScript==
-// @name         jbzd - sprawdzanie linków
-// @namespace    http://tampermonkey.net/
-// @version      0.3
-// @description  Sprawdzanie linków z YT
-// @downloadURL  https://github.com/krozum/jbzd---sprawdzanie-linkow/raw/master/script.user.js
-// @updateURL    https://github.com/krozum/jbzd---sprawdzanie-linkow/raw/master/script.user.js
-// @author       brains
+// @name         jbzd - sprawdzanie linków (fork by Lubieerror)
+// @namespace    JBZDY
+// @version      0.3.1
+// @description  Sprawdzanie linków z YT (fork by Lubieerror)
+// @downloadURL  https://github.com/Lubieerror/jbzd---sprawdzanie-linkow/raw/master/script.user.js
+// @updateURL    https://github.com/Lubieerror/jbzd---sprawdzanie-linkow/raw/master/script.user.js
+// @author       brains (krozum)[original], Mig [text], lubieerror [fork]
 // @match        https://jbzdy.pl/*
 // @grant        none
 // ==/UserScript==
@@ -26,7 +26,7 @@ $(window).load(function(){
             }).done(function (data) {
                 if(data['items'].length != 0){
                     if(data['items'][0]['snippet']['channelId'] == "UCtbx4rjJW3CYRZjSDX4HARw"){
-                        THAT.append("<br><br><span style='color: red'>LINK ZWERYFIKOWANO NEGATYWNIE 👎</span>");
+                        THAT.append("<br><br><span style='color: red'>JEZUS CHRYSTUS JEST MOIM KRÓLEM</span>");
                     } else {
                         THAT.append("<br><br><span style='color: green'>LINK ZWERYFIKOWANO POZYTYWNIE 👍</span>");
                     }
